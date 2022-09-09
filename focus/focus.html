@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title id="title">focus, take it easy</title>
+    <link href="../jcfirsttake_master.css" rel="stylesheet">
+    <link href="focus.css" rel="stylesheet">
+</head>
+<body>
+    <div id="navbar">
+    <header>
+        <nav>
+            <ul>
+                <li><div id="logo"><a href="../home/homepage.html" id="home"><img src="/img/logo-white-cropped.png/" class="logoOn" alt="#"/><img src="/img/logo-black-cropped.png" class= "logoOff" alt="#"/></a></div></li>
+                <li><a href="../focus/focus.html">focus</a></li>
+                <li><a href="../hear/hear.html">hear</a></li>
+                <li><a href="../learn/learn.html">learn</a></li>
+                <!--                <li><a href="#">analyze</a></li>-->
+                <li class="nav-right">
+                    <div id="lightswitch">
+                        <button id="signup" type="button">sign up (soon)</button>
+                        <label class="theme-switch" for="nightMode">
+                        <input type="checkbox" id="nightMode">
+                            <div class="slider round"></div>
+                        </label>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+</div>
+    <div id="main">
+        <div id="times">
+            <div id="timer">
+                <h2>interval timer</h2>
+                <h3 id="upperTimerLabel">time on</h3>
+                <div id="workClock">
+                    <p id="minsOn" contenteditable="true">25</p>
+                    <p class="timerColon">:</p>
+                    <p id="secsOn" contenteditable="true">00</p>
+                </div>
+                <div id="breakClock">
+                    <p id="minsOff" contenteditable="true">05</p>
+                    <p class="timerColon">:</p>
+                    <p id="secsOff" contenteditable="true">00</p>
+                </div>
+                <h3 id="lowerTimerLabel">time off</h3>
+                <div id="buttonContainer">
+                    <button type="button" id="setInt">Set Interval</button>
+                    <button type="button" id="pauseTimer">Start</button>
+                    <button type="button" id="endTimer">End</button>
+                </div>
+            </div>
+            <div id="eta">
+                <h2>current time...</h2>
+                <h3 id="currTime">00:00</h3>
+                <h2>you'll be done at...</h2>
+                <h3 id="timeRemaining">00:00</h3>
+            </div>
+        </div>
+        <div id="todo">
+            <ul id="taskList">
+                <li id="parentBig" class="bigTask">
+                    <span onclick="newBigg()" class="biggBtn">+</span>
+                    <p contenteditable="true">insert a topic here</p>
+                    <span onclick="newLilListElement()" class="addBtn">+</span>
+                    <div class="estimatedtime parentBig">
+                        <p class="minutesLeft parentBig">00</p>
+                        <p>:</p>
+                        <p class="secondsLeft parentBig">00</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script src="focus.js"></script>
+    <script src="../js_master.js"></script>
+
+</body>
+</html>

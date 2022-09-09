@@ -1,0 +1,111 @@
+
+#flashcards{
+    width: 80vw;
+    height: 50vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-family: "Kollektif Regular", sans-serif;
+    align-self: center;
+}
+
+#swiper{
+    margin-top: 20px;
+    width: 30vw;
+    height: 40vh;
+    aspect-ratio: 2/ 3;
+    perspective: 300px;
+    perspective-origin: center 50%;
+    transform-style: preserve-3d;
+    position: relative;
+}
+
+.card{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border-radius: 20px;
+    overflow: hidden;
+    transform: translateZ(calc(-30px * var(--i))) translateY(calc(-20px * var(--i))) rotate(calc(-4deg * var(--i)));
+    filter: drop-shadow(2px 2px 20px rgba(0,0,0,0.5));
+    cursor: pointer;
+    background-color: var(--flashbg);
+}
+
+.cardFace{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1em;
+
+}
+
+.card.is-flipped {
+    transform: rotateX(180deg);
+}
+.front{
+    transform: rotateX(0deg);
+}
+.back{
+    backface-visibility: hidden;
+    transform: rotateX(180deg);
+}
+
+.card div{
+    font-size: 4vh;
+    color: midnightblue;
+
+}
+
+
+#wrong, #right{
+    font-size: 4vh;
+    border-radius: 50%;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    animation-name: iconAnimation1;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: both;
+    /*dont run animation at the beginning*/
+    animation-play-state: paused;
+}
+
+#right{
+    color: var(--primary-color);
+}
+#wrong{
+    color: var(--primary-color);
+}
+
+#right.trigger, #wrong.trigger{
+    animation-name: iconAnimation2;
+}
+
+@keyframes iconAnimation1 {
+    0%,
+    100%{
+        opacity: 0.2;
+    }
+    50%{
+        opacity: 1;
+        text-shadow: 0 0 20px white;
+    }
+}
+@keyframes iconAnimation2 {
+    0%,
+    100%{
+        opacity: 0.2;
+    }
+    50%{
+        opacity: 1;
+        text-shadow: 0 0 20px white;
+    }
+}

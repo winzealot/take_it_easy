@@ -1,0 +1,99 @@
+
+
+#playCards{
+    width: 35vw;
+    height: 50vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-family: "Kollektif Regular", sans-serif;
+}
+
+#swiper{
+    height: 40vh;
+    aspect-ratio: 2/ 3;
+    perspective: 100px;
+    perspective-origin: center 50%;
+    transform-style: preserve-3d;
+    position: relative;
+}
+
+.card{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border-radius: 20px;
+    overflow: hidden;
+    transform: translateZ(calc(-30px * var(--i))) translateY(calc(-20px * var(--i))) rotate(calc(-4deg * var(--i)));
+    filter: drop-shadow(2px 2px 20px rgba(0,0,0,0.5));
+    cursor: pointer;
+    user-select: none;
+}
+
+.card img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 50%;
+}
+.soundTitle{
+    position: absolute;
+    object-fit: cover;
+    z-index: 1;
+    font-size: 3vh;
+    color: white;
+    text-shadow: 0 0 10px black;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+
+}
+
+
+#removeSound, #loadSound{
+    font-size: 8vh;
+    border-radius: 50%;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    animation-name: iconAnimation1;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: both;
+    /*dont run animation at the beginning*/
+    animation-play-state: paused;
+}
+
+#loadSound{
+    color: black;
+}
+#removeSound{
+    color: black;
+}
+
+#loadSound.trigger, #removeSound.trigger{
+    animation-name: iconAnimation2;
+}
+
+@keyframes iconAnimation1 {
+    0%,
+    100%{
+        opacity: 0.2;
+    }
+    50%{
+        opacity: 1;
+        text-shadow: 0 0 20px white;
+    }
+}
+@keyframes iconAnimation2 {
+    0%,
+    100%{
+        opacity: 0.2;
+    }
+    50%{
+        opacity: 1;
+        text-shadow: 0 0 20px white;
+    }
+}

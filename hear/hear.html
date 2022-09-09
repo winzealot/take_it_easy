@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hear, take it easy</title>
+    <link href="../jcfirsttake_master.css" rel="stylesheet">
+    <link href="hear.css" rel="stylesheet">
+    <link rel="stylesheet" href="cardswipe_master.css">
+    <script src="https://kit.fontawesome.com/c8c5eb327d.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <div id="navbar">
+        <header>
+            <nav>
+                <ul>
+                    <li><div id="logo"><a href="../home/homepage.html" id="home"><img src="/img/logo-white-cropped.png/" class="logoOn" alt="#"/><img src="/img/logo-black-cropped.png" class= "logoOff" alt="#"/></a></div></li>
+                    <li><a href="../focus/focus.html">focus</a></li>
+                    <li><a href="../hear/hear.html">hear</a></li>
+                    <li><a href="../learn/learn.html">learn</a></li>
+<!--                    <li><a href="#">analyze</a></li>-->
+                    <li class="nav-right">
+                        <div id="lightswitch">
+                            <button id="signup" type="button">sign up (soon)</button>
+                            <label class="theme-switch" for="nightMode">
+                                <input type="checkbox" id="nightMode">
+                                <div class="slider round"></div>
+                            </label>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+    </div>
+    <div id="main">
+        <div id="searchSwipe">
+            <div id="search">
+                <input type="text" id="searchForm" placeholder="enter sound code or spotify link...">
+                <button id="submitSearch" onclick="loadCode()">&#x21aa;</button>
+            </div>
+            <div id="playCards">
+                <h1 id="removeSound">&#x2715;</h1>
+                <div id="swiper">
+                </div>
+                <h1 id="loadSound">&#x21E5;</h1>
+            </div>
+        </div>
+        <div id="recentSpotify">
+            <div id="nowPlaying">
+                <audio id="audio" src="#" loop></audio>
+                <div id="playingText">
+                    <div class="soundText">
+                        <h3>now loaded:</h3>
+                        <h1 id="soundLabel">insert sound here</h1>
+                    </div>
+                    <div class="soundText">
+                        <h3>sound code:</h3>
+                        <h1 id="soundCode">________</h1>
+                    </div>
+                </div>
+                <i class="fa-solid fa-play" id="playButton" onclick="playAudio()"></i>
+            </div>
+            <div id="spotifyIntegration">
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/0vvXsWCC9xrXsKd4FyS8kM?utm_source=generator&theme=0" width="100%" height="280"  allowfullscreen="true" allowtransparency="true" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+            </div>
+        </div>
+    </div>
+    <script src="cardScript.js"></script>
+    <script src="hear.js"></script>
+    <script src="../js_master.js"></script>
+</body>
+</html>

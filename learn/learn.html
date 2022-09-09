@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>learn, take it easy</title>
+    <link rel="stylesheet" href="../jcfirsttake_master.css">
+    <link rel="stylesheet" href="flashcards_master.css">
+    <link rel="stylesheet" href="learn.css">
+</head>
+<body>
+<div id="navbar">
+    <header>
+        <nav>
+            <ul>
+                <li><div id="logo"><a href="../home/homepage.html" id="home"><img src="/img/logo-white-cropped.png/" class="logoOn" alt="#"/><img src="/img/logo-black-cropped.png" class= "logoOff" alt="#"/></a></div></li>
+                <li><a href="../focus/focus.html">focus</a></li>
+                <li><a href="../hear/hear.html">hear</a></li>
+                <li><a href="../learn/learn.html">learn</a></li>
+                <!--<li><a href="#">analyze</a></li>-->
+                <li class="nav-right">
+                    <div id="lightswitch">
+                        <button id="signup" type="button">sign up (soon)</button>
+                        <label class="theme-switch" for="nightMode">
+                            <input type="checkbox" id="nightMode">
+                            <div class="slider round"></div>
+                        </label>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+</div>
+
+<div id="main">
+    <div id="upperStuff">
+        <div id="addEditRemove">
+            <button class="cardTweakButtons" id="addCardBtn" type="button">add</button>
+            <button class="cardTweakButtons" id="editCardBtn" type="button">edit</button>
+            <button class="cardTweakButtons" id="randomizeCardBtn" type="button">shuffle</button>
+        </div>
+        <div id="flashcards">
+            <h1 id="wrong">nope</h1>
+            <div id="swiper">
+            </div>
+            <h1 id="right">got it</h1>
+        </div>
+    </div>
+    <div id="lowerStuff">
+        <div class="lowerList" id="questionList">
+            <h2>questions</h2>
+            <ul id="questions">
+                <li>z</li>
+                <li>y</li>
+                <li>x</li>
+            </ul>
+        </div>
+        <div class="lowerList" id="recommendedStudySets">
+            <h2>study sets</h2>
+            <ul id="studySets">
+                <li>z</li>
+                <li>y</li>
+                <li>x</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<script src="flashCardSwipe.js"></script>
+<script src="../js_master.js"></script>
+</body>
+</html>

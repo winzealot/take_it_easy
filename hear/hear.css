@@ -1,0 +1,110 @@
+
+body{
+    background-color: var(--bg-color);
+}
+
+#main{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    margin: 10px 40px;
+}
+
+#search{
+    border-radius: 20px;
+    border: 2px solid var(--primary-color);
+    box-shadow: 2px 2px 2px var(--primary-color);
+    width: 60%;
+    height: 50px;
+    margin: 5px 40px;
+    justify-content: center;
+    display: flex;
+    padding-left: 5px;
+}
+
+#searchSwipe{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}
+
+#submitSearch{
+    background: var(--primary-color);
+    border: none;
+    border-top-right-radius: 18px;
+    border-bottom-right-radius: 18px;
+    width: 40px;
+    font-size: 1em;
+    margin-right: -3px;
+    color: var(--font-secondary);
+}
+#submitSearch:hover{
+    border: 2px var(--primary-color) solid;
+    background-color: var(--secondary-color);
+    color: var(--font-secondary);
+}
+
+#recentSpotify{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+#searchForm{
+    border: none;
+    background: var(--bg-color);
+    color: var(--font-color);
+    border-bottom-left-radius: 20px;
+    border-top-left-radius: 20px;
+    height: 46px;
+    width: 95%;
+    font-family: "Kollektif Regular", sans-serif;
+    font-size: 18px;
+    outline: none;
+}
+
+#nowPlaying{
+    border-radius: 20px;
+    border: 2px solid var(--primary-color);
+    box-shadow: 2px 2px 2px var(--primary-color);
+    color: var(--font-color);
+    width: auto;
+    height: 200px;
+    margin: 20px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-family: "Kollektif Regular", sans-serif;
+
+}
+#playingText{
+    display: flex;
+    justify-content: space-between;
+}
+.soundText{
+    padding: 0 20px;
+}
+#playButton{
+    font-size: 3vw;
+    cursor: pointer;
+}
+
+#playCards{
+    border-radius: 20px;
+    border: 2px solid var(--primary-color);
+    box-shadow: 2px 2px 2px var(--primary-color);
+    width: 100%;
+    height: 200px;
+    margin: 20px 20px;
+}
+
+#spotifyIntegration{
+    border-radius: 12px;
+    border: 2px solid var(--primary-color);
+    box-shadow: 2px 2px 2px var(--primary-color);
+    width: auto;
+    height: auto;
+    background-color: black;
+    margin: 20px 20px;
+}

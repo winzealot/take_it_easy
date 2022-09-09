@@ -1,0 +1,59 @@
+*{
+    user-select: none;
+}
+
+#main{
+    font-family: "Kollektif Regular", sans-serif;
+    display: flex;
+    flex-direction: column;
+    margin-left: 45px;
+}
+
+#upperStuff{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 10px;
+}
+#lowerStuff{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-top: 10px;
+}
+
+.lowerList{
+    margin: 30px 10px;
+}
+.lowerList ul{
+    list-style: none;
+}
+
+.cardTweakButtons{
+    margin: 20px 10px;
+    padding: 8px;
+    border-radius: 30px;
+    background-color: var(--primary-color);
+    color: var(--font-secondary);
+    font-family: "Kollektif Regular", sans-serif;
+    box-shadow: 2px 2px 2px var(--primary-color);
+    font-size: 1.5em;
+    align-items: center;
+}
+
+.cardTweakButtons:hover{
+    background-color: var(--secondary-color);
+    border: var(--primary-color) 2px solid;
+    cursor: pointer;
+}
+
+
+#addEditRemove{
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    align-items: center;
+    justify-content: space-between;
+    max-height: 200px;
+
+}

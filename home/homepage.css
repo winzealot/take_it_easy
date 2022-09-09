@@ -1,0 +1,31 @@
+
+*{
+    font-family: "Kollektif Regular", sans-serif;
+    font-size: 1em;
+}
+body{
+    background-color: var(--bg-color);
+
+}
+.main-column h1{
+    font-family: headerLofiFont, sans-serif;
+    font-size: 3em;
+}
+
+#main{
+    display: inline-grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+    color: var(--font-color)
+}
+
+.main-column{
+    flex: 50%;
+    float: right;
+    text-align: center;
+    padding: 15%;
+}
+#studier{
+    width: 100%;
+}
