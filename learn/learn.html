@@ -34,9 +34,10 @@
 <div id="main">
     <div id="upperStuff">
         <div id="addEditRemove">
-            <button class="cardTweakButtons" id="addCardBtn" type="button">add</button>
+            <button class="cardTweakButtons" id="openSetBtn" type="button" onclick="openSetsForm()">sets</button>
+            <button class="cardTweakButtons" id="addCardBtn" type="button" onclick="openAddForm()">add</button>
             <button class="cardTweakButtons" id="editCardBtn" type="button">edit</button>
-            <button class="cardTweakButtons" id="randomizeCardBtn" type="button">shuffle</button>
+            <button class="cardTweakButtons" id="randomizeCardBtn" type="button" onclick="shuffleCards()">shuffle</button>
         </div>
         <div id="flashcards">
             <h1 id="wrong">nope</h1>
@@ -45,18 +46,45 @@
             <h1 id="right">got it</h1>
         </div>
     </div>
+    <div id="modalone" class="modal">
+        <div class="modal-content">
+            <div class="formPopup" id="setsForm">
+                <a class="closePopUp" href="#" onclick="closeSetsForm()">&times;</a>
+                <form class="formContainer">
+                    <h1>load set:</h1>
+                    <input id="studySetInputID" class="formInput" type="text" placeholder="set id" name="set">
+                    <button type="button" class="formButton" id="loadSetButton">load</button>
+                    <h1>current set id (save this):</h1>
+                    <h3 id="currSetID">*current set id here*</h3>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div id="modaltwo" class="modal">
+        <div class="modal-content">
+            <div class="formPopup" id="addForm">
+                <a class="closePopUp" href="#" onclick="closeAddForm()">&times;</a>
+                <form class="formContainer">
+                    <h1>load set:</h1>
+                    <input id="termInput" class="formInput" type="text" placeholder="term" name="set">
+                    <input id="defInput" class="formInput" type="text" placeholder="definition" name="set">
+                    <button type="button" class="formButton" id="addToSet">load</button>
+                </form>
+            </div>
+        </div>
+    </div>
     <div id="lowerStuff">
-        <div class="lowerList" id="questionList">
-            <h2>questions</h2>
-            <ul id="questions">
+        <div class="lowerList" id="termList">
+            <h2>terms</h2>
+            <ul id="terms">
                 <li>z</li>
                 <li>y</li>
                 <li>x</li>
             </ul>
         </div>
-        <div class="lowerList" id="recommendedStudySets">
-            <h2>study sets</h2>
-            <ul id="studySets">
+        <div class="lowerList" id="definitionList">
+            <h2>definitions</h2>
+            <ul id="definitions">
                 <li>z</li>
                 <li>y</li>
                 <li>x</li>
@@ -68,5 +96,6 @@
 
 <script src="flashCardSwipe.js"></script>
 <script src="../js_master.js"></script>
+<script src="learn.js"></script>
 </body>
 </html>

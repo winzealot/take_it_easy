@@ -1,9 +1,11 @@
 //Card class
 class Card{
-    constructor({onDismiss, onLoad, onRemove}) {
+    constructor({onDismiss, onLoad, onRemove, term, definition}){
         this.onDismiss = onDismiss;
         this.onLoad = onLoad;
         this.onRemove = onRemove;
+        this.term = term;
+        this.definition = definition;
         this.#init();
     }
 
@@ -20,12 +22,12 @@ class Card{
         const cardFront = document.createElement('div');
         cardFront.className = "cardFace";
         cardFront.classList.add('front');
-        cardFront.innerHTML = "this is a demo question";
+        cardFront.innerHTML = this.term;
 
         const cardBack = document.createElement('div');
         cardBack.className = "cardFace";
         cardBack.classList.add('back')
-        cardBack.innerHTML = "this is a demo answer";
+        cardBack.innerHTML = this.definition;
 
         card.append(cardFront);
         card.append(cardBack);
@@ -107,11 +109,9 @@ class Card{
         }
         if (typeof this.onLoad === 'function' && direction === 1){
             this.onLoad();
-
         }
         if (typeof this.onRemove === 'function' && direction === -1){
             this.onRemove();
-
         }
     }
 }
@@ -124,6 +124,7 @@ const remove = document.querySelector('#wrong');
 
 //variables
 let cardCount = 0;
+let setID = 0;
 
 //functions
 function appendNewCard(){
@@ -134,14 +135,17 @@ function appendNewCard(){
                 load.style.animationPlayState = 'running';
                 load.classList.toggle('trigger');
             },
-            onRemove:()=>{
+            onRemove:()=> {
                 remove.style.animationPlayState = 'running';
                 remove.classList.toggle('trigger');
-            }
+            },
+            term: termsList.length > 0 ? termsList[cardCount] : 'click to see my definition',
+            definition: definitionsList.length > 0 ? definitionsList[cardCount] : "try loading a set on the left, then get rid of me and a couple of my friends behind me",
+
         }
     );
     swiper.append(card.element)
-    cardCount++;
+    cardCount = cardCount >= termsList.length-1 ? 0 : cardCount + 1;
 
     const cards = swiper.querySelectorAll('.card:not(.dismissing)');
     cards.forEach((card, index) => {
@@ -149,6 +153,41 @@ function appendNewCard(){
         card.style.transition = 'transform 0.5s'
     })
 }
+
+
+let termsList = [];
+let definitionsList = []; // they get initialized in getStudySet()
+
+
+
+function loadLists(term, def){
+    termsList.push(term);
+    definitionsList.push(def);
+}
+
+function getStudySet(studySetID) {
+    let xhttp = new XMLHttpRequest();
+    xhttp.open("GET", `http://127.0.0.1:8000/api/sets/${studySetID}/?format=json`, false);
+    xhttp.send();
+    if (xhttp.status !== 404) {
+        let data = JSON.parse(xhttp.responseText);
+        setID = data.id;
+        termsList = []; //initialize the lists to equal nothing EVERY TIME its called, so func can be recalled with new set and refresh
+        definitionsList = [];
+        data.cards.forEach((term, definition) => loadLists(term.term, term.definition));
+        return true;
+    }
+    return false;
+
+}
+
+function checkStudySet(studySetID) {
+    let xhttp = new XMLHttpRequest();
+    xhttp.open("GET", `http://127.0.0.1:8000/api/sets/${studySetID}/?format=json`, false);
+    xhttp.send();
+    return xhttp.readyState === 4 && xhttp.status === 200;
+}
+
 //first five cards
 for (let i = 0; i < 5; i++){
     appendNewCard();

@@ -48,12 +48,79 @@
     cursor: pointer;
 }
 
+.closePopUp{
+    margin-left: 10px;
+    font-size: 2em;
+    color: var(--primary-color);
+    cursor: pointer;
+    text-decoration: none;
+}
+.closePopUp:hover{
+    color: var(--secondary-color);
+    text-shadow: red 2px 2px 2px;
+    transition: 0.2s ease;
+}
+
+.modal{
+    display: none;
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content{
+    margin: 50px auto;
+    border: 1px solid var(--primary-color);
+    width: 40%;
+    background-color: var(--bg-color);
+    border-radius: 15px;
+}
+.formContainer{
+    padding: 20px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+.formInput{
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 30px;
+    border: 1px solid var(--primary-color);
+    font-family: "Kollektif Regular", sans-serif;
+    font-size: 1em;
+    width: 50%;
+    text-align: center;
+}
+.formButton{
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 30px;
+    background-color: var(--primary-color);
+    color: var(--font-secondary);
+    font-family: "Kollektif Regular", sans-serif;
+    font-size: 1.5em;
+    width: 50%;
+    align-items: center;
+    cursor: pointer;
+}
+.formButton:hover{
+    background-color: var(--secondary-color);
+    border: var(--primary-color) 2px solid;
+    transition: 0.2s ease;
+}
+
 
 #addEditRemove{
     display: grid;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
     align-items: center;
-    justify-content: space-between;
-    max-height: 200px;
+    justify-content: space-evenly;
 
 }

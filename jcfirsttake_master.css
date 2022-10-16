@@ -39,6 +39,10 @@
     background: var(--primary-color);
 }
 
+body::-webkit-scrollbar{
+    display: none;
+}
+
 #navbar{
     background-color: midnightblue;
     padding: 1% 1% 1% 1%;
@@ -90,7 +94,7 @@
     background-color: rgba(245, 245, 245, 1);
     border: none;
     border-radius: 50px;
-    cursor: pointer;
+    cursor: not-allowed;
     transition: all 0.3s ease 0s;
     margin: 3px 10px;
 }

@@ -51,7 +51,7 @@ function searchSoundCode(query) {
 
 function findSpotifyCode(query) {
     let plCode;
-    if (query.indexOf('?') !== -1){
+    if (query.indexOf('?utm_source') !== -1){
         plCode = query.substring(34, query.indexOf('?'))
         console.log(plCode);
         let newSrc = "https://open.spotify.com/embed/playlist/"+ plCode +"?utm_source=generator&theme=0";

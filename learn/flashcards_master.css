@@ -8,6 +8,12 @@
     align-items: center;
     font-family: "Kollektif Regular", sans-serif;
     align-self: center;
+    margin: 10px 40px;
+    border-color: var(--primary-color);
+    border-style: solid;
+    border-width: 4px;
+    border-radius: 15px;
+    box-shadow: black 4px 2px;
 }
 
 #swiper{
@@ -19,6 +25,7 @@
     perspective-origin: center 50%;
     transform-style: preserve-3d;
     position: relative;
+
 }
 
 .card{
@@ -58,9 +65,9 @@
 }
 
 .card div{
-    font-size: 4vh;
+    font-size: 3vh;
     color: midnightblue;
-
+    margin-right: 10px;
 }
 
 
