@@ -12,6 +12,9 @@ let isPaused = true
 var temporaryinterval
 const theTitle = document.getElementById("title").innerHTML
 
+
+
+
 function starttimer() {
     var minsType;
     var secsType;
@@ -32,9 +35,10 @@ function starttimer() {
     startTimeSecs = parseInt(document.getElementById(secsType).innerHTML);
     startTimeMins = parseInt(document.getElementById(minsType).innerHTML);
 
-    console.log("timer started");
+    //console.log("timer started");
     temporaryinterval = setInterval(function (){
-        document.getElementById("title").innerHTML = theTitle + (" " + document.getElementById(minsType).innerHTML + ":" + document.getElementById(minsType).innerHTML)
+        let titleString = isOn ? "lock in... " : "chill...";
+        document.getElementById("title").innerHTML = titleString + (" " + document.getElementById(minsType).innerHTML + ":" + document.getElementById(secsType).innerHTML)
         if (!isPaused) {
             if (startTimeSecs === 0 && startTimeMins > 0) {
                 startTimeMins -= 1
@@ -47,21 +51,20 @@ function starttimer() {
 
             if (startTimeSecs === 0) {
                 tempSecs = "00"
-            } else if (startTimeSecs < 10) {
-                tempSecs = "0" + startTimeSecs
-            } else {
+            }
+            else {
                 tempSecs = startTimeSecs
             }
 
             //console.log(typeof startTimeMins,startTimeMins, typeof startTimeSecs, startTimeSecs)
-            document.getElementById(minsType).innerHTML = startTimeMins < 10 ? startTimeMins + "0" : startTimeMins
-            document.getElementById(secsType).innerHTML = tempSecs
+            document.getElementById(minsType).innerHTML = startTimeMins < 10 ? "0" + startTimeMins : startTimeMins;
+            document.getElementById(secsType).innerHTML = (tempSecs < 10 && tempSecs !== "00") ? "0" + tempSecs : tempSecs;
 
 
             if(startTimeSecs === 0 && startTimeMins === 0){
                 document.getElementById(minsType).innerHTML = isOn ? intervalMins : breakIntervalMins;
                 document.getElementById(secsType).innerHTML = isOn ? intervalSecs : breakIntervalSecs;
-                console.log("timer finished!")
+                //console.log("timer finished!")
                 pausetimer();
                 isOn = !isOn;
                 pausetimer();
@@ -93,12 +96,12 @@ function pausetimer(){
         document.getElementById(minsType).contentEditable = true
         clearInterval(temporaryinterval)
         document.getElementById("pauseTimer").innerHTML = "Resume"
-        console.log("timer paused")
+        //console.log("timer paused")
     }
     else{
         isPaused = false
         document.getElementById("pauseTimer").innerHTML = "Pause"
-        console.log("timer resumed")
+        //console.log("timer resumed")
         starttimer()
     }
 }
@@ -116,7 +119,7 @@ function endtimer(){
         secsType = "secsOff";
     }
     isPaused = true
-    console.log("timer ended")
+    //console.log("timer ended")
     clearInterval(temporaryinterval)
     document.getElementById("pauseTimer").innerHTML = "Resume"
 
@@ -150,37 +153,21 @@ intButton.addEventListener("click", function () {
 
     document.getElementById("setInt").innerHTML = "\uD83D\uDDF8";
 
-    if (parseInt(document.getElementById(minsType).innerHTML) >= 0 && isOn){
-        intervalMins = document.getElementById(minsType).innerHTML;
-    }
-    else if (parseInt(document.getElementById(minsType).innerHTML) >= 0 && !isOn){
-        breakIntervalMins = parseInt(document.getElementById(minsType).innerHTML);
-    }
-    else{
-        intervalMins = 25;
-        breakIntervalMins = 5;
-    }
-    if (parseInt(document.getElementById(secsType).innerHTML) >= 0 && isOn){
-        intervalSecs = document.getElementById(secsType).innerHTML;
-    }
-    else if (parseInt(document.getElementById(secsType).innerHTML) >= 0 && !isOn){
-        breakIntervalSecs = parseInt(document.getElementById(secsType).innerHTML);
-    }
-    else {
-        intervalSecs = 0;
-        breakIntervalSecs = 0;
-    }
+    intervalMins = document.getElementById("minsOn").innerHTML;
+    breakIntervalMins = document.getElementById("minsOff").innerHTML;
+    intervalSecs = document.getElementById("secsOn").innerHTML;
+    breakIntervalSecs = document.getElementById("secsOff").innerHTML;
 
 
     if (isOn){
         document.getElementById(minsType).innerHTML = intervalMins;
         document.getElementById(secsType).innerHTML = intervalSecs;
-        console.log(isOn, minsType, secsType, intervalMins, intervalSecs, breakIntervalMins, breakIntervalSecs);
+        //console.log(isOn, minsType, secsType, intervalMins, intervalSecs, breakIntervalMins, breakIntervalSecs);
     }
     else {
         document.getElementById(minsType).innerHTML = breakIntervalMins;
         document.getElementById(secsType).innerHTML = breakIntervalSecs;
-        console.log(isOn, minsType, secsType, intervalMins, intervalSecs, breakIntervalMins, breakIntervalSecs);
+        //console.log(isOn, minsType, secsType, intervalMins, intervalSecs, breakIntervalMins, breakIntervalSecs);
     }
     var counter = 0
     var x = setInterval(function (){
@@ -270,7 +257,6 @@ function newLilListElement(ID) {
     li.appendChild(label);
     taskHead.insertBefore(li, bigTaskAbove.nextSibling)
 }
-
 
 function newBigg(){
     var taskHead = document.getElementById("taskList");
@@ -365,19 +351,20 @@ setInterval(function () {
     if ((theDate.getHours() + (totalMins / 60)) % 24 >= 12){
         //console.log((theDate.getHours() + (totalMins / 60)) % 24, (theDate.getHours() + (totalMins / 60)) % 24 >= 12)
         if ((totalMins % 60) < 10){
-            timeLeft.innerHTML = (((theDate.getHours() + parseInt(totalMins / 60)) % 12) + 1) + ":0" + (totalMins % 60) + " PM";
+            timeLeft.innerHTML = (((theDate.getHours() + parseInt(totalMins / 60)) % 12)) + ":0" + (totalMins % 60) + " PM";
         }
         else{
-            timeLeft.innerHTML = (((theDate.getHours() + parseInt(totalMins / 60)) % 12) + 1) + ":" + (totalMins % 60) + " PM";
+            timeLeft.innerHTML = (((theDate.getHours() + parseInt(totalMins / 60)) % 12)) + ":" + (totalMins % 60) + " PM";
         }
     }
     else {
-        //console.log((theDate.getHours() + (totalMins / 60)) % 24, (theDate.getHours() + (totalMins / 60)) % 24 >= 12)
+        //console.log((theDate.getHours() + (totalMins / 60)) % 24, (theDate.getHours() + (totalMins / 60)) % 24 >= 12
+        let temp = (parseInt(theDate.getHours() + (totalMins / 60)) % 24 === 0) ? 12 : parseInt(theDate.getHours() + (totalMins / 60)) % 24;
         if ((totalMins % 60) < 10){
-            timeLeft.innerHTML = (parseInt(theDate.getHours() + (totalMins / 60)) % 24) + ":0" + (totalMins % 60) + " AM";
+            timeLeft.innerHTML = temp + ":0" + (totalMins % 60) + " AM";
         }
         else{
-            timeLeft.innerHTML = (parseInt(theDate.getHours() + (totalMins / 60)) % 24) + ":" + (totalMins % 60) + " AM";
+            timeLeft.innerHTML = temp + ":" + (totalMins % 60) + " AM";
         }
     }
 
