@@ -188,7 +188,7 @@ function checkStudySet(studySetID) {
     return xhttp.readyState === 4 && xhttp.status === 200;
 }
 
-//first five cards
-for (let i = 0; i < 5; i++){
-    appendNewCard();
-}
+// //first five cards
+// for (let i = 0; i < 5; i++){
+//     appendNewCard();
+// }
