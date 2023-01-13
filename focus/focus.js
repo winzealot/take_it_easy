@@ -11,8 +11,7 @@ let isPaused = true
 
 var temporaryinterval
 const theTitle = document.getElementById("title").innerHTML
-
-
+const endTimerSound = new Audio("sounds/end-timer.mp3")
 
 
 function starttimer() {
@@ -65,6 +64,7 @@ function starttimer() {
                 document.getElementById(minsType).innerHTML = isOn ? intervalMins : breakIntervalMins;
                 document.getElementById(secsType).innerHTML = isOn ? intervalSecs : breakIntervalSecs;
                 //console.log("timer finished!")
+                endTimerSound.play();
                 pausetimer();
                 isOn = !isOn;
                 pausetimer();
